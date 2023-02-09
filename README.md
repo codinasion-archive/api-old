@@ -10,13 +10,13 @@
 // Sample response
 [
   {
-    "path": "/api/program",
+    "path": "/api/programs",
     "description": "List of programs"
   }
 ]
 ```
 
-### 🌐 `/api/program`
+### 🌐 `/api/programs`
 
 > List of all programs.
 
@@ -34,7 +34,7 @@
 ]
 ```
 
-### 🌐 `/api/program/:slug`
+### 🌐 `/api/programs/:slug`
 
 > Get program details.
 
@@ -50,6 +50,20 @@
   "markdown": "",
   "latestUpdateDate": "2023-02-05T06:06:38Z"
 }
+```
+
+### 🌐 `/api/programs/tags`
+
+> List of all program tags.
+
+```json
+// Sample response
+[
+  {
+    "name": "Python",
+    "count": 194
+  }
+]
 ```
 
 <div align="center">

@@ -7,12 +7,16 @@ export default async function handler(
 ) {
   const apiRoutes = [
     {
-      path: "/api/program",
+      path: "/api/programs",
       description: "List of programs",
     },
     {
-      path: "/api/program/[slug]",
+      path: "/api/programs/[slug]",
       description: "Detail of a program",
+    },
+    {
+      path: "/api/programs/tags",
+      description: "List of program tags",
     },
   ];
 

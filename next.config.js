@@ -4,8 +4,12 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/api/programs/:path*",
-        destination: "/api/program/:path*",
+        source: "/api/program/:slug*",
+        destination: "/api/programs/:slug*",
+      },
+      {
+        source: "/api/programs/tag",
+        destination: "/api/programs/tags",
       },
     ];
   },
