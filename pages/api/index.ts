@@ -7,6 +7,10 @@ export default async function handler(
 ) {
   const apiRoutes = [
     {
+      path: "/archive?image_url=",
+      description: "Archive click image",
+    },
+    {
       path: "/contributors",
       description: "List of all contributors",
     },
