@@ -7,19 +7,26 @@ export default async function handler(
 ) {
   const apiRoutes = [
     {
-      path: "/api/programs",
+      path: "/contributors",
+      description: "List of all contributors",
+    },
+    {
+      path: "/programs",
       description: "List of programs",
     },
     {
-      path: "/api/programs/[slug]",
+      path: "/programs/[slug]",
       description: "Detail of a program",
     },
     {
-      path: "/api/programs/tags",
+      path: "/programs/tags",
       description: "List of program tags",
     },
   ];
 
   res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=60");
-  res.status(200).json(apiRoutes);
+  res.status(200).json({
+    message: "Welcome to the Codinasion API 🤗",
+    routes: apiRoutes,
+  });
 }

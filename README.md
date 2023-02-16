@@ -2,7 +2,7 @@
 
 ## API Routes
 
-### 🌐 `/api`
+### 🌐 `/`
 
 > List of all available API routes.
 
@@ -10,13 +10,28 @@
 // Sample response
 [
   {
-    "path": "/api/programs",
+    "path": "/programs",
     "description": "List of programs"
   }
 ]
 ```
 
-### 🌐 `/api/programs`
+### 🌐 `/contributors`
+
+> List of all contributors.
+
+```json
+// Sample response
+[
+  {
+    "id": 54644599,
+    "login": "harshraj8843",
+    "name": "Harsh Raj"
+  }
+]
+```
+
+### 🌐 `/programs`
 
 > List of all programs.
 
@@ -34,7 +49,7 @@
 ]
 ```
 
-### 🌐 `/api/programs/:slug`
+### 🌐 `/programs/:slug`
 
 > Get program details.
 
@@ -52,7 +67,7 @@
 }
 ```
 
-### 🌐 `/api/programs/tags`
+### 🌐 `/programs/tags`
 
 > List of all program tags.
 
