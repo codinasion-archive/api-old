@@ -11,6 +11,10 @@ export default async function handler(
       description: "Archive click image",
     },
     {
+      path: "/archive/:slug",
+      description: "Get user clicks",
+    },
+    {
       path: "/contributors",
       description: "List of all contributors",
     },
