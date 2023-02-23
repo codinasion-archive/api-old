@@ -23,6 +23,10 @@ export default async function handler(
       description: "List of all contributors",
     },
     {
+      path: "/humans.txt",
+      description: "Humans.txt file",
+    },
+    {
       path: "/programs",
       description: "List of programs",
     },

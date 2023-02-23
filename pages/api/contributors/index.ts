@@ -13,8 +13,8 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<ContributorResponseType[]>
 ) {
-  // fetch data from github
-  const programListJson = await fetch(
+  // fetch contributors data from backend
+  const contributors = await fetch(
     `${process.env.BACKEND_URL}/github/contributors`,
     {
       method: "GET",
@@ -26,5 +26,5 @@ export default async function handler(
   ).then((res: any) => res.json());
 
   res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=60");
-  res.status(200).json(programListJson);
+  res.status(200).json(contributors);
 }
