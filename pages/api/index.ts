@@ -7,7 +7,7 @@ export default async function handler(
 ) {
   const apiRoutes = [
     {
-      path: "/archive?image_url=",
+      path: "/archive?image_url=[github_raw_url]",
       description: "Archive click image",
     },
     {
@@ -15,12 +15,16 @@ export default async function handler(
       description: "List of archived users",
     },
     {
-      path: "/archive/:slug",
+      path: "/archive/[username]",
       description: "Get user clicks",
     },
     {
       path: "/contributors",
       description: "List of all contributors",
+    },
+    {
+      path: "/good1stissue",
+      description: "List of good first issues",
     },
     {
       path: "/humans.txt",

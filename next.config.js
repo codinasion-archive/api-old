@@ -7,6 +7,10 @@ const nextConfig = {
         destination: "/api/contributors",
       },
       {
+        source: "/good1stissues",
+        destination: "/api/good1stissue",
+      },
+      {
         source: "/program/:slug*",
         destination: "/api/programs/:slug*",
       },
