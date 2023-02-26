@@ -31,6 +31,14 @@ export default async function handler(
       description: "Humans.txt file",
     },
     {
+      path: "/linkfree-og",
+      description: "LinkFree default OG Image",
+    },
+    {
+      path: "/linkfree-og/[username]",
+      description: "LinkFree User OG Image",
+    },
+    {
       path: "/programs",
       description: "List of programs",
     },
