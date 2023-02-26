@@ -35,6 +35,10 @@ export default async function handler(
       description: "LinkFree default OG Image",
     },
     {
+      path: "/linkfree-og/users",
+      description: "List of LinkFree users",
+    },
+    {
       path: "/linkfree-og/[username]",
       description: "LinkFree User OG Image",
     },
