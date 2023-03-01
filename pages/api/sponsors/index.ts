@@ -7,6 +7,7 @@ export type SponsorResponseType = {
   id: number;
   login: string;
   name: string;
+  sponsor_url: string;
   featured: boolean;
   active: boolean;
 };
@@ -16,16 +17,13 @@ export default async function handler(
   res: NextApiResponse<SponsorResponseType[]>
 ) {
   // fetch sponsors data from backend
-  const sponsors = await fetch(
-    `${process.env.BACKEND_URL}/github/sponsors`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Token ${process.env.BACKEND_ACCESS_TOKEN}`,
-      },
-    }
-  ).then((res: any) => res.json());
+  const sponsors = await fetch(`${process.env.BACKEND_URL}/github/sponsors`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Token ${process.env.BACKEND_ACCESS_TOKEN}`,
+    },
+  }).then((res: any) => res.json());
 
   res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=60");
   res.status(200).json(sponsors);
