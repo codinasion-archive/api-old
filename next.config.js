@@ -19,6 +19,14 @@ const nextConfig = {
         destination: "/api/programs/tags",
       },
       {
+        source: "/tool/:slug*",
+        destination: "/api/tools/:slug*",
+      },
+      {
+        source: "/tools/tag",
+        destination: "/api/tools/tags",
+      },
+      {
         source: "/:path*",
         destination: "/api/:path*",
       },
