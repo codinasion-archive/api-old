@@ -66,6 +66,18 @@ export default async function handler(
       path: "/sponsors/featured",
       description: "List of featured sponsors",
     },
+    {
+      path: "/tools",
+      description: "List of @codinasion/tools",
+    },
+    {
+      path: "/tools/[slug]",
+      description: "Detail of a tool",
+    },
+    {
+      path: "/tools/tags",
+      description: "List of tool tags",
+    }
   ];
 
   res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=60");

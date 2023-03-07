@@ -13,7 +13,7 @@ export default async function handler(
     const buffer = await fetch(image_url as string, {
       method: "GET",
       headers: {
-        Authorization: `Bearer ${process.env.ARCHIVE_REPO_TOKEN}`,
+        Authorization: `Bearer ${process.env.REPO_TOKEN}`,
       },
     }).then((res) => res.arrayBuffer());
 
