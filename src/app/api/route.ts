@@ -31,6 +31,10 @@ export async function GET(request: Request) {
         description: "List of program tags",
       },
       {
+        path: "/program/tags/[tag]",
+        description: "List of programs with a specific tag",
+      },
+      {
         path: "/tools",
         description: "List of @codinasion/tools",
       },
@@ -41,6 +45,10 @@ export async function GET(request: Request) {
       {
         path: "/tools/tags",
         description: "List of tool tags",
+      },
+      {
+        path: "/tools/tags/[tag]",
+        description: "List of tools with a specific tag",
       },
     ],
   };

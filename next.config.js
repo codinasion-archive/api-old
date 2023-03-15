@@ -28,10 +28,29 @@ const nextConfig = {
         destination: "/program/:slug*",
         permanent: true,
       },
-
+      {
+        source: "/programs/tag/:slug*",
+        destination: "/program/tags/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/program/tag/:slug*",
+        destination: "/program/tags/:slug*",
+        permanent: true,
+      },
       {
         source: "/tool/:slug*",
         destination: "/tools/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/tool/tag/:slug*",
+        destination: "/tools/tags/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/tools/tag/:slug*",
+        destination: "/tools/tags/:slug*",
         permanent: true,
       },
     ];
