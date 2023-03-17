@@ -7,12 +7,16 @@ export async function GET(request: Request) {
         description: "List of all contributors",
       },
       {
-        path: "/good1stissue",
+        path: "/good-1st-issue",
         description: "List of good first issues",
       },
       {
-        path: "/good1stissue/labels",
+        path: "/good-1st-issue/labels",
         description: "List of good first issue labels",
+      },
+      {
+        path: "/good-1st-issue/labels/[label]",
+        description: "List of good first issues with a specific label",
       },
       {
         path: "/humans.txt",
