@@ -1,91 +1,31 @@
-<h1 align="center">Codinasion API</h1>
+<h2 align="center">Codinasion API</h2>
 
-## API Routes
+<div align="center">
 
-### 🌐 `/`
+Codinasion API source code
 
-> List of all available API routes.
+[![Github Repo Size](https://img.shields.io/github/repo-size/codinasion/api "Repo Size")](https://github.com/codinasion/api) [![Github Contributors](https://img.shields.io/github/contributors/codinasion/api "Contributors")](https://github.com/codinasion/api/graphs/contributors) [![Github Last Commit](https://img.shields.io/github/last-commit/codinasion/api "Last Commit")](https://github.com/codinasion/api/graphs/commit-activity)
 
-```json
-// Sample response
-[
-  {
-    "path": "/programs",
-    "description": "List of programs"
-  }
-]
-```
+<a href="https://vercel.com/?utm_source=codinasion&utm_campaign=oss" target="_blank">
+  <img src="public/powered-by-vercel.svg" alt="Powered By Vercel" width="170">
+</a>
 
-### 🌐 `/contributors`
-
-> List of all contributors.
-
-```json
-// Sample response
-[
-  {
-    "id": 54644599,
-    "login": "harshraj8843",
-    "name": "Harsh Raj"
-  }
-]
-```
-
-### 🌐 `/programs`
-
-> List of all programs.
-
-```json
-// Sample response
-[
-  {
-    "slug": "add-two-matrices",
-    "title": "Add two matrices",
-    "trackId": 4544,
-    "tags": ["C"],
-    "contributors": ["harshraj8843"],
-    "latestUpdateDate": "2023-02-05T06:06:38Z"
-  }
-]
-```
-
-### 🌐 `/programs/:slug`
-
-> Get program details.
-
-```json
-// Sample response
-{
-  "slug": "add-two-matrices",
-  "title": "Add two matrices",
-  "trackId": 4544,
-  "tags": ["C"],
-  "contributors": ["harshraj8843"],
-  "contentHtml": "",
-  "markdown": "",
-  "latestUpdateDate": "2023-02-05T06:06:38Z"
-}
-```
-
-### 🌐 `/programs/tags`
-
-> List of all program tags.
-
-```json
-// Sample response
-[
-  {
-    "name": "Python",
-    "count": 194
-  }
-]
-```
+</div>
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/codinasion/.github/master/assets/rainbow-hr.png" alt="rainbow hr" width="100%" height="70%">
 </div>
 
-<br/>
+## Join us in discussions
+
+We use GitHub Discussions to talk about all sorts of topics related to documentation and this site. For example: if you'd like help troubleshooting a PR, have a great new idea, or want to share something amazing, join us in the [discussions](https://github.com/orgs/codinasion/discussions).
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/codinasion/.github/master/assets/rainbow-hr.png" alt="rainbow hr" width="100%" height="70%">
+</div>
+
+<br>
+
 
 <p align="center">
 Made with 💖 by Codinasion
