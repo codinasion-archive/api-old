@@ -34,25 +34,6 @@ Twitter:     https://twitter.com/codinasion
 
 
 /* TEAM */
-https://github.com/harshraj8843         Harsh Raj             Maintainer
-https://github.com/0ME9A                Baliram Singh         Maintainer
-https://github.com/victoriacheng15      Victoria Cheng        Maintainer
-https://github.com/joao-vitor-souza     João Vitor            Team Member
-https://github.com/anandfresh           Anandha Krishnan S    Team Member
-https://github.com/tanishq-singh-2407   Tanishq Singh         Team Member
-https://github.com/grraghav120          RAGHAV GARG           Team Member
-https://github.com/PaoloFer             Paolo Ferrari         Team Member
-https://github.com/SpirosArk            Spiros Arkoudelis     Team Member
-https://github.com/PrajwalBorkar        Prajwal               Team Member
-https://github.com/vedantpople4         Vedant Pople          Team Member
-https://github.com/brundabharadwaj      Brunda M Bharadwaj    Team Member
-https://github.com/TechnicalAmanjeet    Amanjeet Kumar        Team Member
-https://github.com/MadhuS-1605          Madhu S Gowda         Team Member
-https://github.com/hi-Kartik2004        Kartikeya Saini       Team Member
-https://github.com/PraaneshSelvaraj     Praanesh S            Team Member
-
-
-/* CONTRIBUTORS */
 `;
 
   const res = await fetch(`${process.env.BACKEND_URL}/github/contributors`, {
@@ -62,48 +43,105 @@ https://github.com/PraaneshSelvaraj     Praanesh S            Team Member
       Authorization: `Token ${process.env.BACKEND_ACCESS_TOKEN}`,
     },
   });
-  const contributors = await res.json();
+  const contributorsData = await res.json();
 
   // get maximum length of login and name
   let max_login_length = 0;
   let max_name_length = 0;
 
-  for (const contributor of contributors) {
-    if (contributor.login.length > max_login_length) {
-      max_login_length = contributor.login.length;
+  for (const data of contributorsData) {
+    if (data.contributor.login.length > max_login_length) {
+      max_login_length = data.contributor.login.length;
     }
-    if (contributor.name !== null) {
-      if (contributor.name.length > max_name_length) {
-        max_name_length = contributor.name.length;
+    if (data.contributor.name !== null) {
+      if (data.contributor.name.length > max_name_length) {
+        max_name_length = data.contributor.name.length;
       }
     }
   }
 
   // sort contributors by login
-  contributors.sort((a: any, b: any) => {
-    if (a.login < b.login) {
+  contributorsData.sort((a: any, b: any) => {
+    if (a.contributor.login < b.contributor.login) {
       return -1;
     }
-    if (a.login > b.login) {
+    if (a.contributor.login > b.contributor.login) {
       return 1;
     }
     return 0;
   });
 
+  // Filter maintainers
+  const maintainers = contributorsData.filter(
+    (contributor: any) => contributor.maintainer === true
+  );
+
+  // Filter team members
+  const team_members = contributorsData.filter(
+    (contributor: any) =>
+      contributor.maintainer === false && contributor.team_member === true
+  );
+
+  // Filter contributors
+  const contributors = contributorsData.filter(
+    (contributor: any) =>
+      contributor.maintainer === false && contributor.team_member === false
+  );
+
+  // add maintainers to text_header with proper spacing
+  for (const data of maintainers) {
+    let maintainer_row =
+      "https://github.com/" +
+      data.contributor.login.padEnd(max_login_length + 1) +
+      "\t";
+    if (data.contributor.name !== null) {
+      maintainer_row += data.contributor.name.padEnd(max_name_length + 1);
+    } else {
+      maintainer_row += " ".padEnd(max_name_length + 1);
+    }
+    maintainer_row += "\tMaintainer\n";
+    text_header += maintainer_row;
+  }
+
+  // add team members to text_header with proper spacing
+  for (const data of team_members) {
+    let team_member_row =
+      "https://github.com/" +
+      data.contributor.login.padEnd(max_login_length + 1) +
+      "\t";
+    if (data.contributor.name !== null) {
+      team_member_row += data.contributor.name.padEnd(max_name_length + 1);
+    } else {
+      team_member_row += " ".padEnd(max_name_length + 1);
+    }
+    team_member_row += "\tTeam Member\n";
+    text_header += team_member_row;
+  }
+
+  text_header += `
+/* CONTRIBUTORS */
+`;
+
   // add contributors to text_header with proper spacing
-  for (const contributor of contributors) {
+  for (const data of contributors) {
     let contributor_row =
       "https://github.com/" +
-      contributor.login.padEnd(max_login_length + 1) +
+      data.contributor.login.padEnd(max_login_length + 1) +
       "\t";
-    if (contributor.name !== null) {
-      contributor_row += contributor.name.padEnd(max_name_length + 1);
+    if (data.contributor.name !== null) {
+      contributor_row += data.contributor.name.padEnd(max_name_length + 1);
     } else {
       contributor_row += " ".padEnd(max_name_length + 1);
     }
     contributor_row += "\tContributor\n";
     text_header += contributor_row;
   }
+
+  text_header += `
+& growing...
+
+/* THANKS */
+`;
 
   return new Response(text_header);
 }
