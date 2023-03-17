@@ -1,34 +1,78 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    appDir: true,
+  },
   async rewrites() {
     return [
       {
+        source: "/:path*",
+        destination: "/api/:path*",
+      },
+    ];
+  },
+  async redirects() {
+    return [
+      {
         source: "/contributor",
-        destination: "/api/contributors",
+        destination: "/contributors",
+        permanent: true,
       },
       {
         source: "/good1stissues",
-        destination: "/api/good1stissue",
+        destination: "/good1stissue",
+        permanent: true,
       },
       {
-        source: "/program/:slug*",
-        destination: "/api/programs/:slug*",
+        source: "/programs/:slug*",
+        destination: "/program/:slug*",
+        permanent: true,
       },
       {
-        source: "/programs/tag",
-        destination: "/api/programs/tags",
+        source: "/programs/tag/:slug*",
+        destination: "/program/tags/:slug*",
+        permanent: true,
+      },
+      {
+        source: "/program/tag/:slug*",
+        destination: "/program/tags/:slug*",
+        permanent: true,
       },
       {
         source: "/tool/:slug*",
-        destination: "/api/tools/:slug*",
+        destination: "/tools/:slug*",
+        permanent: true,
       },
       {
-        source: "/tools/tag",
-        destination: "/api/tools/tags",
+        source: "/tool/tag/:slug*",
+        destination: "/tools/tags/:slug*",
+        permanent: true,
       },
+      {
+        source: "/tools/tag/:slug*",
+        destination: "/tools/tags/:slug*",
+        permanent: true,
+      },
+    ];
+  },
+  async headers() {
+    return [
       {
         source: "/:path*",
-        destination: "/api/:path*",
+        headers: [
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "*",
+          },
+          {
+            key: "Content-Type",
+            value: "application/json",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=60, s-maxage=60",
+          },
+        ],
       },
     ];
   },
