@@ -21,8 +21,8 @@ export async function GET(
   // Filter Good First Issue list
   const filteredGood1stissueData = await good1stissueData.issues.filter(
     (issue: any) =>
-      issue.issue_labels.some((l: string) =>
-        l.toLowerCase().includes(label.toLowerCase())
+      issue.issue_labels.some(
+        (l: string) => l.toLowerCase() === label.toLowerCase()
       )
   );
 

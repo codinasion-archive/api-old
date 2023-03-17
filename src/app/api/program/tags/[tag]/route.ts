@@ -21,7 +21,7 @@ export async function GET(
   const programData = await res.json();
 
   // Filter program list
-  const filteredProgramData = programData.filter((program: any) =>
+  const filteredProgramData = await programData.filter((program: any) =>
     program.tags.some((t: string) =>
       t.toLowerCase().includes(tag.toLowerCase())
     )
