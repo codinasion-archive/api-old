@@ -1,5 +1,6 @@
 export async function GET(request: Request) {
   const res = await fetch(`${process.env.GFI_BACKEND_URL}/good1stissue`, {
+    next: { revalidate: 60 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
