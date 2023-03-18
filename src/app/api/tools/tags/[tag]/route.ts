@@ -12,6 +12,7 @@ export async function GET(
   const res = await fetch(
     "https://raw.githubusercontent.com/codinasion/data/tools/tools.json",
     {
+      next: { revalidate: 60 },
       method: "GET",
       headers: {
         "Content-Type": "application/json",

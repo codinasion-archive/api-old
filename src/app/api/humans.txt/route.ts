@@ -37,6 +37,7 @@ Twitter:     https://twitter.com/codinasion
 `;
 
   const res = await fetch(`${process.env.BACKEND_URL}/github/contributors`, {
+    next: { revalidate: 60 },
     method: "GET",
     headers: {
       "Content-Type": "application/json",
