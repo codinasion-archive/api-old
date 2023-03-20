@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
   const res = {
     message: "Welcome to the Codinasion API 🤗",
@@ -57,5 +59,5 @@ export async function GET(request: Request) {
     ],
   };
 
-  return new Response(JSON.stringify(res));
+  return NextResponse.json(res);
 }

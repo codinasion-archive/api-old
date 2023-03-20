@@ -1,4 +1,9 @@
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
+  // this line is just to make the api dynamic :(
+  const { searchParams } = new URL(request.url);
+
   const res = await fetch(
     "https://raw.githubusercontent.com/codinasion/program/data/programList.json",
     {
@@ -11,5 +16,5 @@ export async function GET(request: Request) {
   );
   const programData = await res.json();
 
-  return new Response(JSON.stringify(programData));
+  return NextResponse.json(programData);
 }

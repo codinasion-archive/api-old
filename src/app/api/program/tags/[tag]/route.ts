@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(
   request: Request,
   { params }: { params: { tag: string } }
@@ -28,5 +30,5 @@ export async function GET(
     )
   );
 
-  return new Response(JSON.stringify(filteredProgramData));
+  return NextResponse.json(filteredProgramData);
 }

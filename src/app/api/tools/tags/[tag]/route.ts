@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(
   request: Request,
   { params }: { params: { tag: string } }
@@ -27,5 +29,5 @@ export async function GET(
     tool.tags.some((t: string) => t.toLowerCase().includes(tag.toLowerCase()))
   );
 
-  return new Response(JSON.stringify(filteredtoolData));
+  return NextResponse.json(filteredtoolData);
 }

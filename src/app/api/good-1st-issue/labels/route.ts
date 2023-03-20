@@ -1,4 +1,9 @@
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
+  // this line is just to make the api dynamic :(
+  const { searchParams } = new URL(request.url);
+
   const res = await fetch(`${process.env.GFI_BACKEND_URL}/good1stissue`, {
     next: { revalidate: 60 },
     method: "GET",
@@ -9,5 +14,5 @@ export async function GET(request: Request) {
   });
   const good1stissueData = await res.json();
 
-  return new Response(JSON.stringify(good1stissueData.labels));
+  return NextResponse.json(good1stissueData.labels);
 }
