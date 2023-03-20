@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(
   request: Request,
   { params }: { params: { slug: string } }
@@ -17,5 +19,5 @@ export async function GET(
   );
   const toolData = await res.json();
 
-  return new Response(JSON.stringify(toolData));
+  return NextResponse.json(toolData);
 }

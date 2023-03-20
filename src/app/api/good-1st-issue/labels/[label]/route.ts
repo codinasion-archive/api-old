@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(
   request: Request,
   { params }: { params: { label: string } }
@@ -27,5 +29,5 @@ export async function GET(
       )
   );
 
-  return new Response(JSON.stringify(filteredGood1stissueData));
+  return NextResponse.json(filteredGood1stissueData);
 }
