@@ -7,7 +7,7 @@ export async function GET(
   const slug = params.slug;
 
   const res = await fetch(
-    `https://raw.githubusercontent.com/codinasion/data/tools/${slug}.json`,
+    `https://raw.githubusercontent.com/codinasion/scripts/tools/${slug}.json`,
     {
       next: { revalidate: 60 },
       method: "GET",

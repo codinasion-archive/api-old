@@ -7,12 +7,13 @@ export async function GET(
   const slug = params.slug;
 
   const res = await fetch(
-    `https://raw.githubusercontent.com/codinasion/program/data/program/${slug}.json`,
+    `https://raw.githubusercontent.com/codinasion/scripts/program/${slug}.json`,
     {
       next: { revalidate: 60 },
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REPO_TOKEN}`,
       },
     }
   );
