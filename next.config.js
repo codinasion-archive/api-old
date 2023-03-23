@@ -64,14 +64,6 @@ const nextConfig = {
             key: "Access-Control-Allow-Origin",
             value: "*",
           },
-          {
-            key: "Content-Type",
-            value: "application/json",
-          },
-          {
-            key: "Cache-Control",
-            value: "s-maxage=60, stale-while-revalidate",
-          },
         ],
       },
     ];
