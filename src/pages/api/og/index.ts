@@ -28,7 +28,7 @@ export default async function handler(
 
           // Send image as buffer
           res.setHeader("Content-Type", "image/png");
-          res.setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate");
+          res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate");
           res.status(200).send(Buffer.from(buffer));
         }
       } catch (error) {
@@ -51,7 +51,7 @@ export default async function handler(
 
     // Send image as buffer
     res.setHeader("Content-Type", "image/png");
-    res.setHeader("Cache-Control", "s-maxage=1, stale-while-revalidate");
+    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate");
     res.status(200).send(Buffer.from(buffer));
   } catch (error) {
     res.status(500).send({
