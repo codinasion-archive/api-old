@@ -25,6 +25,10 @@ export async function GET(request: Request) {
         description: "Humans.txt file",
       },
       {
+        path: "/og?path=[path]",
+        description: "Open Graph images of Codinasion",
+      },
+      {
         path: "/program",
         description: "List of programs",
       },

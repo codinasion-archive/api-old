@@ -1,9 +1,6 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-  // this line is just to make the api dynamic :(
-  const { searchParams } = new URL(request.url);
-
   const res = await fetch(`${process.env.BACKEND_URL}/github/contributors`, {
     next: { revalidate: 60 },
     method: "GET",
