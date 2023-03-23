@@ -12,12 +12,13 @@ export async function GET(
   }
 
   const res = await fetch(
-    "https://raw.githubusercontent.com/codinasion/program/data/programList.json",
+    "https://raw.githubusercontent.com/codinasion/scripts/program/program.json",
     {
       next: { revalidate: 60 },
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REPO_TOKEN}`,
       },
     }
   );
