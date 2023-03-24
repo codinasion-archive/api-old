@@ -11,7 +11,7 @@ export async function GET(
     label = label.replace("-sharp", "#");
   }
 
-  const res = await fetch(`${process.env.GFI_BACKEND_URL}/good1stissue`, {
+  const res = await fetch(`${process.env.GFI_BACKEND_URL}/good1stissue/`, {
     next: { revalidate: 60 },
     method: "GET",
     headers: {
